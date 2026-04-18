@@ -1,0 +1,111 @@
+<?php
+$page_title = 'Modelos Shineray · Sucursal Querétaro';
+$page_description = 'Catálogo completo de SUVs, pickups y crossovers Shineray disponibles en la sucursal Querétaro. Fichas técnicas, equipamiento y precios.';
+$page_active = 'modelos';
+$page_og_image = 'img/model-suv.jpg';
+include 'partials/header.php';
+
+$models = [
+  [
+    'name' => 'X30L',
+    'tag' => 'SUV Familiar',
+    'desc' => 'El SUV familiar con espacio para 7 pasajeros, motor turbo y la tecnología más completa de su segmento.',
+    'img' => 'img/model-suv.jpg',
+    'price' => 'Desde $329,900 MXN',
+    'specs' => [
+      ['Pasajeros', '7'],
+      ['Motor', '1.5L Turbo'],
+      ['Potencia', '147 HP'],
+      ['Rendimiento', '16 km/L'],
+    ],
+  ],
+  [
+    'name' => 'T10',
+    'tag' => 'Pickup Doble Cabina',
+    'desc' => 'Pickup robusta de doble cabina, capacidad de carga superior y tracción 4x4 para los terrenos más exigentes.',
+    'img' => 'img/model-pickup.jpg',
+    'price' => 'Desde $419,900 MXN',
+    'specs' => [
+      ['Pasajeros', '5'],
+      ['Motor', '2.0L TDI'],
+      ['Potencia', '163 HP'],
+      ['Tracción', '4x4'],
+    ],
+  ],
+  [
+    'name' => 'X3',
+    'tag' => 'Crossover Urbano',
+    'desc' => 'Compacto, ágil y eficiente. Perfecto para la ciudad sin renunciar al diseño audaz y la tecnología conectada.',
+    'img' => 'img/model-crossover.jpg',
+    'price' => 'Desde $279,900 MXN',
+    'specs' => [
+      ['Pasajeros', '5'],
+      ['Motor', '1.5L'],
+      ['Potencia', '115 HP'],
+      ['Rendimiento', '18 km/L'],
+    ],
+  ],
+];
+?>
+
+<section class="page-header">
+  <div class="container">
+    <span class="eyebrow"><span class="line"></span> Catálogo 2025</span>
+    <h1>Toda la línea<br/><span class="accent">Shineray.</span></h1>
+    <p>Explora nuestros modelos disponibles en la sucursal Querétaro. Cada Shineray combina diseño audaz, tecnología moderna y la confianza de una garantía oficial.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <?php foreach ($models as $i => $m): ?>
+      <article class="model-row<?= $i % 2 === 1 ? ' reverse' : '' ?>">
+        <div class="img-wrap">
+          <img src="<?= $m['img'] ?>" alt="Shineray <?= htmlspecialchars($m['name']) ?>" loading="lazy" width="1280" height="800" />
+          <span class="tag"><?= htmlspecialchars($m['tag']) ?></span>
+        </div>
+        <div>
+          <p class="model-brand">Shineray</p>
+          <h2><?= htmlspecialchars($m['name']) ?></h2>
+          <p class="desc"><?= htmlspecialchars($m['desc']) ?></p>
+
+          <dl class="specs">
+            <?php foreach ($m['specs'] as $s): ?>
+              <div class="spec">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+                <dt><?= htmlspecialchars($s[0]) ?></dt>
+                <dd><?= htmlspecialchars($s[1]) ?></dd>
+              </div>
+            <?php endforeach; ?>
+          </dl>
+
+          <div class="row-cta">
+            <p class="price"><?= htmlspecialchars($m['price']) ?></p>
+            <a href="contacto.php" class="btn btn-primary">
+              Cotizar
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+    <?php endforeach; ?>
+  </div>
+</section>
+
+<section class="section section-surface">
+  <div class="container">
+    <div class="section-header center">
+      <span class="eyebrow" style="justify-content:center;"><span class="line"></span> Personaliza tu Shineray</span>
+      <h2>¿Listo para tu prueba de manejo?</h2>
+      <p>Agenda una cita con nuestros asesores en Querétaro y vive la experiencia Shineray sin compromiso.</p>
+    </div>
+    <div style="text-align:center;margin-top:2rem;">
+      <a href="contacto.php" class="btn btn-primary">
+        Agendar prueba de manejo
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<?php include 'partials/footer.php'; ?>
